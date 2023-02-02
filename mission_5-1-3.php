@@ -28,6 +28,8 @@
         if(!empty($_POST["numEdit"])&&!empty($_POST["passEdit"])){
             $numEdit=$_POST["numEdit"];
             $passEdit=$_POST["passEdit"];
+            //ここからid行の番号を取得する。そうすると、パスワードと名前投稿内容が取り出せる。
+             //パスワードが入力されたものと等しかったら、名前と投稿内容をvalueに入れる。
             $id=$numEdit;
             $sql = "SELECT* FROM tbm5 WHERE id=:id";
             $stmt = $pdo->prepare($sql);                  
@@ -42,8 +44,7 @@
             $value4=$row["password"];
         }   
         }}
-        //ここからid行の番号を取得する。そうすると、パスワードと名前投稿内容が取り出せる。
-        //パスワードが入力されたものと等しかったら、名前と投稿内容をvalueに入れる。
+        
         ?>
         投稿
         <br>
