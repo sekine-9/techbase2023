@@ -33,7 +33,7 @@
             $id=$numEdit;
             $sql = "SELECT* FROM tbm5 WHERE id=:id";
             $stmt = $pdo->prepare($sql);                  
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT); 
             $stmt->execute();                            
             $results = $stmt->fetchAll(); 
             foreach ($results as $row){
@@ -103,13 +103,13 @@
             $date=date("Y/m/d");
             $password=$_POST["pass"];
             $id =$hidden;  //変更する投稿番号
-            $sql = 'UPDATE tbm5 SET name=:name,comment=:comment, date=:date,password=:password WHERE id=:id';
+            $sql = "UPDATE tbm5 SET name=:name,comment=:comment, date=:date,password=:password WHERE id=:id";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-            $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
+            $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+            $stmt->bindParam(":comment", $comment, PDO::PARAM_STR);
             $stmt->bindParam(":date",$date,PDO::PARAM_STR);
             $stmt->bindParam(":password",$password,PDO::PARAM_STR);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
             
    
@@ -123,9 +123,9 @@
             $passDel=$_POST["passDelete"];
             //まずは削除番号とidを比較して所得。パスワードを取り出して、比較。
             $id=$numDel;
-            $sql = 'SELECT * FROM tbm5 WHERE id=:id ';
+            $sql = "SELECT * FROM tbm5 WHERE id=:id ";
             $stmt = $pdo->prepare($sql);                  
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
+ff            $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
             $stmt->execute();                            
             $results = $stmt->fetchAll(); 
             foreach ($results as $row){
