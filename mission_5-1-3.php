@@ -125,7 +125,7 @@
             $id=$numDel;
             $sql = "SELECT * FROM tbm5 WHERE id=:id ";
             $stmt = $pdo->prepare($sql);                  
-ff            $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
             $stmt->execute();                            
             $results = $stmt->fetchAll(); 
             foreach ($results as $row){
